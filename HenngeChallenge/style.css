@@ -3,10 +3,6 @@
 @import 'navbar.css'
 
 
-background-color {
-  color: #FFFFFF;
-}
-
-.callendar input {
-  width: 100%;
+.logo img {
+  width: 1000px;
 }

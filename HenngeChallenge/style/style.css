@@ -1,1 +1,13 @@
-style.css
+@import 'card.css';
+@import 'navbar.css';
+
+
+
+.logo img {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  margin-left: 50%;
+  margin-right: auto;
+
+}

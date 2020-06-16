@@ -6,14 +6,13 @@
   <title>proper</title>
 </head>
 <body>
-  <div class="callendar">
-    <input type="text" class="form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus">
-  </div>
+<form action="/action_page.php">
+  <input type="date" id="callendar" name="callendar">
+  <input type="submit">
+</form>
   <h2>hello world</h2>
-<div class="logo">
-  <img src="style/images/logo.png" alt="logo" width="200" height="200">
-</div>
-<h4>Results: 0mail(s)</h4>
+
+<h4>Results: 10mail(s)</h4>
   <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3"></div>
 
  <div class="container">
@@ -21,10 +20,10 @@
   <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">From</th>
-      <th scope="col">To</th>
-      <th scope="col">Sybject</th>
-      <th scope="col">Date</th>
+      <th class="table-active" scope="col">From</th>
+      <th class="table-active" scope="col">To</th>
+      <th class="table-active" scope="col">Sybject</th>
+      <th class="table-active" scope="col">Date</th>
     </tr>
   </thead>
   <tbody>
@@ -51,7 +50,9 @@
 
   </div>
 
-
+<div class="logo">
+  <img src="style/images/logo.png" alt="logo">
+</div>
 
 </body>
 </html>
