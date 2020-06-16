@@ -1,4 +1,7 @@
-.callendar {
+ input {
   border: 1px solid black;
   border-radius: 20px;
+}
+.header-search-current .header-search-input {
+  width: 200px;
 }
