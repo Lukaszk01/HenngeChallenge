@@ -1,1 +1,12 @@
-style.css
+@import 'card.css';
+@import 'navbar.css';
+@import 'navbar.css'
+
+
+background-color {
+  color: #FFFFFF;
+}
+
+.logo img {
+
+}
