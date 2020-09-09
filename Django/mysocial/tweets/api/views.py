@@ -91,7 +91,7 @@ def get_paginated_queryset_response(qs, request):
     paginator = PageNumberPagination()
     paginator.page_size = 20
     paginated_qs = paginator.paginate_queryset(qs, request)
-    serializer = TweetSerializer(paginated_qs, many=True)
+    serializer = TweetSerializer(paginated_qs, many=True, context={"request": request})
     return paginator.get_paginated_response(serializer.data) # Response( serializer.data, status=200)
 
 
@@ -171,4 +171,4 @@ def tweet_detail_view_pure_django(request, tweet_id, *args, **kwargs):
     except:
         data['message'] = "Not found"
         status = 404
-    return JsonResponse(data, status=status) # json.dumps content_type='application/json'
+    return JsonResponse(data, status=status)
