@@ -1,46 +1,39 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="nav-bar"></div>
-<div id="app">
-  <div class="product">
-    <div class="product-image">
-      <img v-bind:src="image" alt="">
-    </div>
-    <div class="product-info">
-      <h1>{{ product }}</h1>
-      <p>{{ decription }}</p>
-      <p v-if="inStock">In Stock</p>
-      <p v-else>Out of Stock</p>
-      <ul>
-        <li v-for="detail in details">{{ detail }}</li>
-      </ul>
-      <ul>
-        <li v-for="variant in variants" :key="variant.variantId">
-          <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
-          </li>
-      </ul>
-
-      <h2>Todays Sale</h2>
-      <p v-show="onSale">On Sale!</p>
-
-      <button v-on:click="addToCart">Add to Cart</button>
-      <button v-on:click="reduceFromCart">Add to Cart</button>
-
-      <div class="cart">
-        <p>Cart({{cart}})</p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Yo</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="nav-bar"></div>
+      
+      <div class="product-display">
+        <div class="product-container">
+          <div class="product-image">
+            <img v-bind:src="image">
+          </div>
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p v-if="inventory > 10">In Stock</p>
+            <p v-else-if="inventory <= 10 && inventory > 0">Almost Sold out ({{ inventory }} left)</p>
+            <p v-else>Sold out</p>
+            <a :href="url">Made by Me</a>
+          </div>
+        </div>
       </div>
-
     </div>
 
-  </div>
-</div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script src="main.js"></script>
-</body>
+    <!-- Import App -->
+    <script src="./main.js"></script>
+
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+  </body>
 </html>
