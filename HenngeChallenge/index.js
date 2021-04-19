@@ -1,3 +1,32 @@
+// Text-Processing API Url
+const API_URL = 'https://japerk-text-processing.p.rapidapi.com/sentiment/';
+// RapidAPI request headers
+const REQUEST_HEADERS = {
+  'X-RapidAPI-Host': 'japerk-text-processing.p.rapidapi.com'
+  , 'X-RapidAPI-Key': '7xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  , 'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+
+const analyzeEmail = (email, callback) => {
+  // Creating an object to send to the server
+  const data = {
+          text: email
+          , language: 'english'
+  };
+  // Encoding data for application/x-www-form-urlencoded content type
+  const formattedData = Qs.stringify(data);
+  // POST request to server
+  axios.post(API_URL, formattedData, { headers: REQUEST_HEADERS })
+          .then(response => {
+             const data = response.data;
+            // Calling a callback function with data from the server
+            callback(data)
+          })
+          .catch(error => console.error(error))
+};
+
+
 $(function() {
 
     var start = moment().subtract(29, 'days');
