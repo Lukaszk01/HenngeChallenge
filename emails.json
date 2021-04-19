@@ -1,0 +1,90 @@
+{	
+		"id": 1,
+        "from": "aaa1@example.com",
+        "to": "zzzz.zzzz@example.com",
+        "subject": "[HR-8888] Noticed of official announcement",
+        "attachment": "",
+        "datetime": "2021-11-24T15:15:00+0200",
+        "body": "this is a fake body"
+    },
+    {	
+    	"id": 2,
+        "from": "aaa2@example.com",
+        "to": "zzzz.zzzz@example.com",
+        "subject": "[HR-8888] Noticed of official announcement",
+        "attachment": "",
+        "datetime": "2021-11-23T15:15:00+0200",
+        "body": "this is a fake body"
+    },
+    {	
+    	"id": 3,
+        "from": "aaa@example.com",
+        "to": "zzzz.zzzz@example.com, other@me.com",
+        "subject": "[HR-8888] Noticed of official announcement",
+        "attachment": "",
+        "datetime": "2021-08-18T15:15:00+0200",
+        "body": "this is a fake body"
+    },
+    {	
+    	"id": 4,
+        "from": "aaa@example.com",
+        "to": "zzzz.zzzz@example.com, other@me.com",
+        "subject": "[HR-8888] Noticed of official announcement",
+        "attachment": "s",
+        "datetime": "2021-08-18T15:15:00+0200",
+        "body": "this is a fake body"
+    },
+    {	
+    	"id": 5,
+        "from": "aaa@example.com",
+        "to": "zzzz.zzzz@example.com, other@me.com other@melo.com" ,
+        "subject": "[HR-8888] Noticed of official announcement",
+        "attachment": "",
+        "datetime": "2021-08-18T15:15:00+0200",
+        "body": "this is a fake body"
+    },
+    {	
+    	"id": 6,
+        "from": "aaa@example.com",
+        "to": "zzzz.zzzz@example.com",
+        "subject": "[HR-8888] Noticed of official announcement",
+        "attachment": "",
+        "datetime": "2021-08-18T15:15:00+0200",
+        "body": "this is a fake body"
+    },
+    {	
+    	"id": 7,
+        "from": "aaa@example.com",
+        "to": "zzzz.zzzz@example.com",
+        "subject": "[HR-8888] Noticed of official announcement",
+        "attachment": "s",
+        "datetime": "2021-08-18T15:15:00+0200",
+        "body": "this is a fake body"
+    },
+    {	
+    	"id": 8,
+        "from": "aaa@example.com",
+        "to": "zzzz.zzzz@example.com",
+        "subject": "[HR-8888] Noticed of official announcement",
+        "attachment": "s",
+        "datetime": "2021-08-18T15:15:00+0200",
+        "body": "this is a fake body"
+    },
+    {	
+    	"id": 9,
+        "from": "aaa@example.com",
+        "to": "zzzz.zzzz@example.com",
+        "subject": "[HR-8888] Noticed of official announcement",
+        "attachment": "",
+        "datetime": "2021-08-18T15:15:00+0200",
+        "body": "this is a fake body"
+    },
+    {	
+    	"id": 10,
+        "from": "aaa@example.com",
+        "to": "zzzz.zzzz@example.com",
+        "subject":"[HR-8888] Noticed of official announcement",
+        "attachment": "",
+        "datetime": "2021-08-18T15:15:00+0200",
+        "body": "this is a fake body"
+    }

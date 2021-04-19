@@ -1,0 +1,100 @@
+<template>
+  <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 20%">
+    <i class="fa fa-calendar"></i>&nbsp;
+    <span></span> <i class="fa fa-caret-down"></i>
+</div> <button id="submit" href="#"></button>
+<div id="callendar">
+</div>
+
+
+ <div class="calimg">
+<!--   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.86244 18"><defs><style>.a{fill:#666;}</style></defs><title>icon_calender</title><path class="a" d="M18.77607,1.862H16.75882V3.10342h1.86207v13.6552H1.24154V3.10342H3.10362V1.862H1.08637A1.10484,1.10484,0,0,0,.00016,2.98517V16.87655A1.10484,1.10484,0,0,0,1.08606,18h17.69a1.10483,1.10483,0,0,0,1.08621-1.12314V2.98548A1.10482,1.10482,0,0,0,18.77638,1.862Z"/><rect class="a" x="3.72431" y="6.82756" width="1.24138" height="1.24138"/><rect class="a" x="7.44845" y="6.82756" width="1.24138" height="1.24138"/><rect class="a" x="11.1726" y="6.82756" width="1.24138" height="1.24138"/><rect class="a" x="14.89675" y="6.82756" width="1.24138" height="1.24138"/><rect class="a" x="3.72431" y="9.93102" width="1.24138" height="1.24138"/><rect class="a" x="7.44845" y="9.93102" width="1.24138" height="1.24138"/><rect class="a" x="11.1726" y="9.93102" width="1.24138" height="1.24138"/><rect class="a" x="14.89675" y="9.93102" width="1.24138" height="1.24138"/><rect class="a" x="3.72431" y="13.03447" width="1.24138" height="1.24138"/><rect class="a" x="7.44845" y="13.03447" width="1.24138" height="1.24138"/><rect class="a" x="11.1726" y="13.03447" width="1.24138" height="1.24138"/><rect class="a" x="14.89675" y="13.03447" width="1.24138" height="1.24138"/><path class="a" d="M4.96569,4.3448a.62069.62069,0,0,0,.62069-.62069V.62069a.62069.62069,0,1,0-1.24138,0V3.72411A.62069.62069,0,0,0,4.96569,4.3448Z"/><path class="a" d="M14.89675,4.3448a.62069.62069,0,0,0,.62069-.62069V.62069a.62069.62069,0,1,0-1.24138,0V3.72411A.62069.62069,0,0,0,14.89675,4.3448Z"/><rect class="a" x="6.82776" y="1.86203" width="6.20691" height="1.24138"/></svg>
+ -->  </div>
+<!--   <img src="icon_calender.svg" onerror="this.onerror=null; this.src='icon_calender.png'">
+ --><div class="results ml-3">
+  <h4>Results: 10mail(s)</h4>
+</div>
+  <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3"></div>
+
+ <div class="container col-12 md-8 sm-3">
+    <div class="mail-list">
+  <table id="myTable" class="table table-hover">
+  <thead>
+    <tr>
+      <th class="table-active" scope="col">From</th>
+      <th class="table-active" scope="col">To</th>
+      <th class="table-active" scope="col">Subject</th>
+      <th class="table-active" scope="col"> <strong>Date</strong> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+      <td>zzz.zzz@example.com</td>
+      <td>mmm@example.com</td>
+      <td>[ HR-888 ] Notice of official announcement</td>
+      <td>0:20</td>
+
+    </tr>
+    <tr>
+      <!-- <th scope="row"></th> -->
+      <td>bbb.bbbb@example.com</td>
+      <td>ppp@example.com</td>
+      <td>[Github] Logout page</td>
+      <td>0:24</td>
+    </tr>
+    <tr>
+      <td>ccc.bbbb@example.com</td>
+      <td>rrr.bbbb@example.com</td>
+      <td>[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5</td>
+      <td>Jan 01</td>
+    </tr>
+    <tr>
+      <td>dddd@example.com</td>
+      <td>xxx@example.com</td>
+      <td>[ HR-888 ] Notice of official announcement</td>
+      <td>Jan 02</td>
+    </tr>
+    <tr>
+      <td>ffff.bbbb@example.com</td>
+      <td>gggg@example.com</td>
+      <td>[Github] Logout page</td>
+      <td>2019/12/31</td>
+    </tr>
+    <tr>
+      <td>ccc.bbbb@example.com</td>
+      <td>rrr.bbbb@example.com</td>
+      <td>[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5</td>
+      <td>2019/12/30</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+  </div>
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
+</template>
+
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
