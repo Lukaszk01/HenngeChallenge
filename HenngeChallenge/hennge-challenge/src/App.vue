@@ -29,12 +29,8 @@
   </thead>
   <tbody>
     <tr>
-     <!--  <th scope="row"></th> -->
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
-
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-      <!-- <td><a name="sec" href="javascript:void(0);" onclick="this.style.color='black';">aaa@example.com</a></td> -->
-<tr>
       <td>zzz.zzz@example.com</td>
       <td>mmm@example.com</td>
       <td>[ HR-888 ] Notice of official announcement</td>
@@ -72,7 +68,7 @@
       <td>[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5</td>
       <td>2019/12/30</td>
     </tr>
-</tr>
+
   </tbody>
 </table>
 </div>
