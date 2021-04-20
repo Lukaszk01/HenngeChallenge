@@ -8,7 +8,6 @@
 
 
  <div class="calimg">
-<!--   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.86244 18"><defs><style>.a{fill:#666;}</style></defs><title>icon_calender</title><path class="a" d="M18.77607,1.862H16.75882V3.10342h1.86207v13.6552H1.24154V3.10342H3.10362V1.862H1.08637A1.10484,1.10484,0,0,0,.00016,2.98517V16.87655A1.10484,1.10484,0,0,0,1.08606,18h17.69a1.10483,1.10483,0,0,0,1.08621-1.12314V2.98548A1.10482,1.10482,0,0,0,18.77638,1.862Z"/><rect class="a" x="3.72431" y="6.82756" width="1.24138" height="1.24138"/><rect class="a" x="7.44845" y="6.82756" width="1.24138" height="1.24138"/><rect class="a" x="11.1726" y="6.82756" width="1.24138" height="1.24138"/><rect class="a" x="14.89675" y="6.82756" width="1.24138" height="1.24138"/><rect class="a" x="3.72431" y="9.93102" width="1.24138" height="1.24138"/><rect class="a" x="7.44845" y="9.93102" width="1.24138" height="1.24138"/><rect class="a" x="11.1726" y="9.93102" width="1.24138" height="1.24138"/><rect class="a" x="14.89675" y="9.93102" width="1.24138" height="1.24138"/><rect class="a" x="3.72431" y="13.03447" width="1.24138" height="1.24138"/><rect class="a" x="7.44845" y="13.03447" width="1.24138" height="1.24138"/><rect class="a" x="11.1726" y="13.03447" width="1.24138" height="1.24138"/><rect class="a" x="14.89675" y="13.03447" width="1.24138" height="1.24138"/><path class="a" d="M4.96569,4.3448a.62069.62069,0,0,0,.62069-.62069V.62069a.62069.62069,0,1,0-1.24138,0V3.72411A.62069.62069,0,0,0,4.96569,4.3448Z"/><path class="a" d="M14.89675,4.3448a.62069.62069,0,0,0,.62069-.62069V.62069a.62069.62069,0,1,0-1.24138,0V3.72411A.62069.62069,0,0,0,14.89675,4.3448Z"/><rect class="a" x="6.82776" y="1.86203" width="6.20691" height="1.24138"/></svg>
  -->  </div>
 <!--   <img src="icon_calender.svg" onerror="this.onerror=null; this.src='icon_calender.png'">
  --><div class="results ml-3">
@@ -68,6 +67,16 @@
       <td>[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5</td>
       <td>2019/12/30</td>
     </tr>
+  
+    </tr>
+      <div id="app">
+      <ol>
+        <li v-for="email in emails">
+          {{ email.id }}
+        </li>
+      </ol>
+    </div>
+
 
   </tbody>
 </table>
@@ -79,13 +88,31 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+// import EmailData from './components/EmailData.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+const app = {
+  data() {
+    return {
+      emails: [
+        { id: 1 },
+        { from: "aaa1@example.com" },
+        { to: "zzzz.zzzz@example.com" },
+        { subject: "[HR-8888] Noticed of official announcement" },
+        { attachment: "" },
+        { datetime: "2021-11-24T15:15:00+0200" },
+        { body: "this is a fake body" }
+    ]
   }
 }
+}
+// },
+// methods: {
+//     toggle() {
+//       this.seen = !this.seen;
+//     }
+//   }
+
+
 </script>
 
 <style>
