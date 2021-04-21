@@ -68,14 +68,18 @@
       <td>2019/12/30</td>
     </tr>
   
-    </tr>
-      <div id="app">
+   
+     
       <ol>
-        <li v-for="email in emails">
-          {{ email.id }}
+        <li v-bind:emails="emails">
+          {{ emails }}
         </li>
+
       </ol>
-    </div>
+
+     <div>{{ app }} </div>
+
+<div v-for="email in emails">{{ email.subject }}</div>
 
 
   </tbody>
@@ -87,10 +91,10 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 // import EmailData from './components/EmailData.vue'
 
-const app = {
+const app = Vue.createApp({
   data() {
     return {
       emails: [
@@ -102,9 +106,13 @@ const app = {
         { datetime: "2021-11-24T15:15:00+0200" },
         { body: "this is a fake body" }
     ]
-  }
-}
-}
+        }
+    },
+    app
+})
+
+
+
 // },
 // methods: {
 //     toggle() {
