@@ -111,16 +111,6 @@ const app = Vue.createApp({
     app
 })
 
-
-
-// },
-// methods: {
-//     toggle() {
-//       this.seen = !this.seen;
-//     }
-//   }
-
-
 </script>
 
 <style>
