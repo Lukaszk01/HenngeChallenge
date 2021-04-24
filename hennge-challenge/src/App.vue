@@ -109,7 +109,7 @@ const app = Vue.createApp({
         }
     },
     app
-})
+})``
 
 </script>
 
