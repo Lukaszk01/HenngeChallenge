@@ -1,5 +1,13 @@
 <template>
-  <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 20%">
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <h1>Events For Good</h1>
+    <router-view />
+  </div>
+ <!--  <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 20%">
     <i class="fa fa-calendar"></i>&nbsp;
     <span></span> <i class="fa fa-caret-down"></i>
 </div> <button id="submit" href="#"></button>
@@ -8,9 +16,8 @@
 
 
  <div class="calimg">
- -->  </div>
-<!--   <img src="icon_calender.svg" onerror="this.onerror=null; this.src='icon_calender.png'">
- --><div class="results ml-3">
+ </div>
+<div class="results ml-3">
   <h4>Results: 10mail(s)</h4>
 </div>
   <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3"></div>
@@ -37,7 +44,7 @@
 
     </tr>
     <tr>
-      <!-- <th scope="row"></th> -->
+
       <td>bbb.bbbb@example.com</td>
       <td>ppp@example.com</td>
       <td>[Github] Logout page</td>
@@ -67,49 +74,17 @@
       <td>[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5</td>
       <td>2019/12/30</td>
     </tr>
-  
-   
-     
-      <ol>
-        <li v-bind:emails="emails">
-          {{ emails }}
-        </li>
-
-      </ol>
-
-     <div>{{ app }} </div>
-
-<div v-for="email in emails">{{ email.subject }}</div>
-
 
   </tbody>
 </table>
 </div>
 
-  </div>
+  </div> -->
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import EmailData from './components/EmailData.vue'
 
-const app = Vue.createApp({
-  data() {
-    return {
-      emails: [
-        { id: 1 },
-        { from: "aaa1@example.com" },
-        { to: "zzzz.zzzz@example.com" },
-        { subject: "[HR-8888] Noticed of official announcement" },
-        { attachment: "" },
-        { datetime: "2021-11-24T15:15:00+0200" },
-        { body: "this is a fake body" }
-    ]
-        }
-    },
-    app
-})``
 
 </script>
 
