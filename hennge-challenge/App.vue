@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import EmailData from '@/components/EmailData.vue'
+import EmailCard from '@/components/emailData.vue'
 export default {
   name: 'Home',
   components: {
@@ -18,13 +18,16 @@ export default {
   data() {
     return {
       emails: [
-        {   id: 1,
-          from: "aaa1@example.com",
-          to: "zzzz.zzzz@example.com",
-          subject: "[HR-8888] Noticed of official announcement",
-          attachment: "",
-          datetime: "2021-11-24T15:15:00+0200",
-          body: "this is a fake body"
+        {
+          id: 5928101,
+          category: 'animal welfare',
+          title: 'Cat Adoption Day',
+          description: 'Find your new feline friend at this email.',
+          location: 'Meow Town',
+          date: 'January 28, 2022',
+          time: '12:00',
+          petsAllowed: true,
+          organizer: 'Kat Laydee'
         },
         {
           id: 4582797,

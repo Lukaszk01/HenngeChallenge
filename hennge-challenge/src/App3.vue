@@ -3,28 +3,31 @@
     <h2>emails</h2>
   </div>
 
-    <div class="emails">
-    <EmailData v-for="email in emails" :key="email.id" :email="email" />
+    <div class="events">
+    <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
 
 <script>
-import EmailData from '@/components/EmailData.vue'
+import EventCard from '@/components/EventCard.vue'
 export default {
   name: 'Home',
   components: {
-    EmailData
+    EventCard
   },
   data() {
     return {
-      emails: [
-        {   id: 1,
-          from: "aaa1@example.com",
-          to: "zzzz.zzzz@example.com",
-          subject: "[HR-8888] Noticed of official announcement",
-          attachment: "",
-          datetime: "2021-11-24T15:15:00+0200",
-          body: "this is a fake body"
+      events: [
+        {
+          id: 5928101,
+          category: 'animal welfare',
+          title: 'Cat Adoption Day',
+          description: 'Find your new feline friend at this event.',
+          location: 'Meow Town',
+          date: 'January 28, 2022',
+          time: '12:00',
+          petsAllowed: true,
+          organizer: 'Kat Laydee'
         },
         {
           id: 4582797,
