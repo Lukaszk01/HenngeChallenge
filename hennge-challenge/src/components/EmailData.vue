@@ -10,10 +10,16 @@ emailOne  = {
     
 
 <template>
-  <div class="email-data">
-    <span>@{{ email.id }} on {{ email.subject }}</span>
-    <h4>{{ email.title }}</h4>
-  </div>
+    <tr>
+    <div class="email-data">
+      <span>@{{ email.id }} on {{ email.from }}</span>
+      <td>{{ email.subject }}</td>
+      <td>{{ email.to }}</td>
+      <td>{{ email.body }}</td>
+      <td>{{ email.datetime }}</td>
+    </div>
+    </tr>
+
 </template>
 
 <script>

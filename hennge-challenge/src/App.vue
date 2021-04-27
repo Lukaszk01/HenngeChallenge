@@ -18,7 +18,8 @@ export default {
   data() {
     return {
       emails: [
-        {   id: 1,
+        { 
+          id: 1,
           from: "aaa1@example.com",
           to: "zzzz.zzzz@example.com",
           subject: "[HR-8888] Noticed of official announcement",
@@ -27,26 +28,92 @@ export default {
           body: "this is a fake body"
         },
         {
-          id: 4582797,
-          category: 'food',
-          title: 'Community Gardening',
-          description: 'Join us as we tend to the community edible plants.',
-          location: 'Flora City',
-          date: 'March 14, 2022',
-          time: '10:00',
-          petsAllowed: true,
-          organizer: 'Fern Pollin'
+          id: 2,
+          from: "bbb1@example.com",
+          to: "zzzz.zzzz@example.com",
+          subject: "[Github] Logout page",
+          attachment: "",
+          datetime: "2021-11-24T15:15:00+0200",
+          body: "this is a fake body"
         },
         {
-          id: 8419988,
-          category: 'sustainability',
-          title: 'Beach Cleanup',
-          description: 'Help pick up trash along the shore.',
-          location: 'Playa Del Carmen',
-          date: 'July 22, 2022',
-          time: '11:00',
-          petsAllowed: false,
-          organizer: 'Carey Wales'
+          id: 3,
+          from: "ccc1@example.com",
+          to: "zzzz.zzzz@example.com",
+          subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
+          attachment: "",
+          datetime: "2021-11-24T15:15:00+0200",
+          body: "this is a fake body"
+        }
+        ,
+        {
+          id: 4,
+          from: "ddd1@example.com",
+          to: "mmmm.zzzz@example.com",
+          subject: "[HR-8888] Noticed of official announcement",
+          attachment: "",
+          datetime: "2021-11-24T15:15:00+0200",
+          body: "this is a fake body"
+        }
+        ,
+        {
+          id: 5,
+          from: "eee1@example.com",
+          to: "tttt.zzzz@example.com",
+          subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
+          attachment: "",
+          datetime: "2021-11-24T15:15:00+0200",
+          body: "this is a fake body"
+        }
+        ,
+        {
+          id: 6,
+          from: "fff1@example.com",
+          to: "pppp.zzzz@example.com",
+          subject: "[HR-8888] Noticed of official announcement",
+          attachment: "",
+          datetime: "2021-11-24T15:15:00+0200",
+          body: "this is a fake body"
+        }
+        ,
+        {
+          id: 7,
+          from: "ggg1@example.com",
+          to: "ooo.zzzz@example.com",
+          subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
+          attachment: "",
+          datetime: "2021-11-24T15:15:00+0200",
+          body: "this is a fake body"
+        }
+        ,
+        {
+          id: 8,
+          from: "hhh1@example.com",
+          to: "tttt.zzzz@example.com",
+          subject: "[HR-8888] Noticed of official announcement",
+          attachment: "",
+          datetime: "2021-11-24T15:15:00+0200",
+          body: "this is a fake body"
+        }
+        ,
+        {
+          id: 9,
+          from: "iii1@example.com",
+          to: "xxx.zzzz@example.com",
+          subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
+          attachment: "",
+          datetime: "2021-11-24T15:15:00+0200",
+          body: "this is a fake body"
+        }
+        ,
+        {
+          id: 10,
+          from: "jjj1@example.com",
+          to: "zzzz.zzzz@example.com",
+          subject: "[HR-8888] Noticed of official announcement",
+          attachment: "",
+          datetime: "2021-11-24T15:15:00+0200",
+          body: "this is a fake body"
         }
       ]
     }
