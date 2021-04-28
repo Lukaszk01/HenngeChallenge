@@ -10,6 +10,7 @@ emailOne  = {
     
 
 <template>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
     <tr>
     <div class="email-data">
       <span>@{{ email.id }} on {{ email.from }}</span>
@@ -28,6 +29,11 @@ export default {
     email: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    myFunction {
+      
     }
   }
 }
