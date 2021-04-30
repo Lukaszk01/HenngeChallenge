@@ -11,20 +11,20 @@
    <input type="date" v-model="startDate">
    <input type="date" v-model="endDate">
    <ul>
-     <li v-for="emails in filteredData" :key="emails.datetime">{{emails.datetime}}</li>
+     <li v-for="datas in filteredData" :key="datas.datetime">{{datas.datetime}}</li>
    </ul>
 </div>
 
   <!-- Where the array of emails get rendered as cards -->
   <div id="email-container">
-    <div class="card" v-for="email in filteredEmails" :key="email.subject">
+    <div class="card" v-for="datas in filteredEmails" :key="datas.subject">
       <img :src="email.img" class="email-image">
       <div class="content">
         <h1 class="email-subject">
-          {{ email.subject }}
+          {{ datas.subject }}
         </h1>
         <p>
-          {{ email.description }}
+          {{ data.description }}
         </p>
         <span class="body-span">
 
@@ -90,8 +90,7 @@ export default {
       ascending: true,
       sortBy: 'alphabetically',
       searchValue: '',
-      data: {
-        all:[
+      datas: [
         { 
           id: 1,
           from: "aaa1@example.com",
@@ -190,56 +189,56 @@ export default {
           body: "this is a fake body"
         }
     ]
-  },
+  ,
   computed: {
     filteredData(){
       var vm = this
       var startDate = vm.startDate;
       var endDate = vm.endDate;
-      return _.filter(vm.data.emails, (function (data) {
+      return _.filter(vm.data, (function (data) {
         if ((_.isNull(startDate) && _.isNull(endDate))) {
           return true
         } else {
-          var date = data.emails;
+          var date = data;
           return (date >= startDate && date <= endDate);
         }
       }))
     }
-  }
-    // filteredEmails() {
-  //   let tempEmails = this.emails
+  },
+    filteredEmails() {
+    let tempEmails = this
     
-  //   // Process search input
-  //   if (this.searchValue != '' && this.searchValue) {
-  //       tempEmails = tempEmails.filter((item) => {
-  //         return item.datetime
-  //           .toUpperCase()
-  //           .includes(this.searchValue.toUpperCase())
-  //       })
-  //     }
-           
-  //   // Sort by alphabetical order
-  //       tempEmails = tempEmails.sort((a, b) => {
-  //           if (this.sortBy == 'alphabetically') {
-  //               let fa = a.datetime.toLowerCase(), fb = b.datetime.toLowerCase()
+    // Process search input
+    if (this.searchValue != '' && this.searchValue) {
+        tempEmails = tempEmails.filter((item) => {
+          return item.datetime
+            .toUpperCase()
+            .includes(this.searchValue.toUpperCase())
+        })
+      }
+    
+    // Sort by alphabetical order
+        tempEmails = tempEmails.sort((a, b) => {
+            if (this.sortBy == 'alphabetically') {
+                let fa = a.datetime.toLowerCase(), fb = b.datetime.toLowerCase()
           
-  //             if (fa < fb) {
-  //               return -1
-  //             }
-  //             if (fa > fb) {
-  //               return 1 
-  //             }
-  //             return 0
-  //       }
-  //       })
+              if (fa < fb) {
+                return -1
+              }
+              if (fa > fb) {
+                return 1 
+              }
+              return 0
+        }
+        })
         
-  //       // Show sorted array in descending or ascending order
-  //       if (!this.ascending) {
-  //         tempEmails.reverse()
-  //       }
+        // Show sorted array in descending or ascending order
+        if (!this.ascending) {
+          tempEmails.reverse()
+        }
         
-  //       return tempEmails
-  // }
+        return tempEmails
+  }
     }
   }
 }
