@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h2>emails</h2>
+    <input type="text" v-model="searchValue" placeholder="Search Email" id="search-input">
   </div>
 
     <div class="emails">
@@ -17,6 +18,9 @@ export default {
   },
   data() {
     return {
+      ascending: true,
+      sortBy: 'alphabetically',
+      searchValue: '',
       emails: [
         { 
           id: 1,
@@ -115,9 +119,46 @@ export default {
           datetime: "2021-11-24T15:15:00+0200",
           body: "this is a fake body"
         }
-      ]
-    }
+    ]
+    };
+  },
+  computed: {
+  filteredEmails() {
+    let tempEmails = this.emails
+    
+    // Process search input
+    if (this.searchValue != '' && this.searchValue) {
+        tempEmails = tempEmails.filter((item) => {
+          return item.subject
+            .toUpperCase()
+            .includes(this.searchValue.toUpperCase())
+        })
+      }
+           
+    // Sort by alphabetical order
+        tempEmails = tempEmails.sort((a, b) => {
+            if (this.sortBy == 'alphabetically') {
+                let fa = a.subject.toLowerCase(), fb = b.subject.toLowerCase()
+          
+              if (fa < fb) {
+                return -1
+              }
+              if (fa > fb) {
+                return 1 
+              }
+              return 0
+        }
+        })
+        
+        // Show sorted array in descending or ascending order
+        if (!this.ascending) {
+          tempEmails.reverse()
+        }
+        
+        return tempEmails
   }
+}
+  
 }
 
 </script>
@@ -132,3 +173,10 @@ export default {
   margin-top: 60px;
 }
 </style>
+
+
+
+
+export default {
+  
+};

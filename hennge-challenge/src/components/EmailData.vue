@@ -10,7 +10,7 @@ emailOne  = {
     
 
 <template>
-<input type="text" v-model="searchValue" placeholder="Search Email" id="search-input">
+<!-- <input type="text" v-model="searchValue" placeholder="Search Email" id="search-input"> -->
     <i class="fa fa-search"></i>
     <tr>
     <div class="email-data">
@@ -30,19 +30,6 @@ export default {
     email: {
       type: Object,
       required: true
-    }
-  },
- computed: {
-  filteredEmails() {
-    let tempEmails = this.emails
-    if (this.searchValue != '' && this.searchValue) {
-        tempEmails = tempEmails.filter((item) => {
-          return item.title
-            .toUpperCase()
-            .includes(this.searchValue.toUpperCase())
-        })
-        return tempEmails
-      }
     }
   }
 }
