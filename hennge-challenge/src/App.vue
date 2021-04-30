@@ -1,8 +1,60 @@
 <template>
   <div id="app">
+
+<div id="sort-bar">
+    <select name="sortBy" id="select" v-model="sortBy">
+      <option value="alphabetically">Alphabetically</option>
+    </select>
+    <button v-on:click="ascending = !ascending" class="sort-button">
+      <i v-if="ascending" class="fa fa-sort-up"></i>
+      <i v-else class="fa fa-sort-down"></i>
+    </button>
+
+    <input type="text" v-model="searchValue" placeholder="Search email" id="search-input">
+    <i class="fa fa-search"></i>
+  </div>
+    
+  <!-- Where the array of emails get rendered as cards -->
+  <div id="email-container">
+    <div class="card" v-for="email in filteredEmails" :key="email.subject">
+      <img :src="email.img" class="email-image">
+      <div class="content">
+        <h1 class="email-subject">
+          {{ email.subject }}
+        </h1>
+        <p>
+          {{ email.description }}
+        </p>
+        <span class="body-span">
+
+          <h3 class="body-subject">
+            bodys:
+          </h3>
+       <!--    <ol class="body-list">
+            <li v-for="body in email.bodys">- {{ body }}</li>
+          </ol> -->
+        </span>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <h2>emails</h2>
     <input type="text" v-model="searchValue" placeholder="Search Email" id="search-input">
-  </div>
+
 
     <div class="emails">
     <EmailData v-for="email in emails" :key="email.id" :email="email" />
