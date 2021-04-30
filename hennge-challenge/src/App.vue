@@ -28,7 +28,19 @@
         <span class="body-span">
 
           <h3 class="body-subject">
-            bodys:
+            body:
+          </h3>
+          <h3>
+           <p>Recever:</p> 
+            {{ email.to }}
+          </h3>
+          <h3>
+           <p>Sender:</p> 
+            {{ email.from }}
+          </h3>
+            <h3>
+           <p>Date:</p> 
+            {{ email.datetime }}
           </h3>
        <!--    <ol class="body-list">
             <li v-for="body in email.bodys">- {{ body }}</li>
@@ -89,7 +101,7 @@ export default {
           to: "zzzz.zzzz@example.com",
           subject: "[Github] Logout page",
           attachment: "",
-          datetime: "2021-11-24T15:15:00+0200",
+          datetime: "2021-11-25T15:15:00+0200",
           body: "this is a fake body"
         },
         {
@@ -98,7 +110,7 @@ export default {
           to: "zzzz.zzzz@example.com",
           subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
           attachment: "",
-          datetime: "2021-11-24T15:15:00+0200",
+          datetime: "2021-11-26T15:15:00+0200",
           body: "this is a fake body"
         }
         ,
@@ -108,7 +120,7 @@ export default {
           to: "mmmm.zzzz@example.com",
           subject: "[HR-8888] Noticed of official announcement",
           attachment: "",
-          datetime: "2021-11-24T15:15:00+0200",
+          datetime: "2021-10-16T15:15:00+0200",
           body: "this is a fake body"
         }
         ,
@@ -118,7 +130,7 @@ export default {
           to: "tttt.zzzz@example.com",
           subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
           attachment: "",
-          datetime: "2021-11-24T15:15:00+0200",
+          datetime: "2021-10-10T15:15:00+0200",
           body: "this is a fake body"
         }
         ,
@@ -128,7 +140,7 @@ export default {
           to: "pppp.zzzz@example.com",
           subject: "[HR-8888] Noticed of official announcement",
           attachment: "",
-          datetime: "2021-11-24T15:15:00+0200",
+          datetime: "2021-11-30T15:15:00+0200",
           body: "this is a fake body"
         }
         ,
@@ -138,7 +150,7 @@ export default {
           to: "ooo.zzzz@example.com",
           subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
           attachment: "",
-          datetime: "2021-11-24T15:15:00+0200",
+          datetime: "2020-11-24T15:15:00+0200",
           body: "this is a fake body"
         }
         ,
@@ -148,7 +160,7 @@ export default {
           to: "tttt.zzzz@example.com",
           subject: "[HR-8888] Noticed of official announcement",
           attachment: "",
-          datetime: "2021-11-24T15:15:00+0200",
+          datetime: "2021-03-21T15:15:00+0200",
           body: "this is a fake body"
         }
         ,
@@ -158,7 +170,7 @@ export default {
           to: "xxx.zzzz@example.com",
           subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
           attachment: "",
-          datetime: "2021-11-24T15:15:00+0200",
+          datetime: "2021-06-17T15:15:00+0200",
           body: "this is a fake body"
         }
         ,
@@ -181,7 +193,7 @@ export default {
     // Process search input
     if (this.searchValue != '' && this.searchValue) {
         tempEmails = tempEmails.filter((item) => {
-          return item.subject
+          return item.datetime
             .toUpperCase()
             .includes(this.searchValue.toUpperCase())
         })
@@ -190,7 +202,7 @@ export default {
     // Sort by alphabetical order
         tempEmails = tempEmails.sort((a, b) => {
             if (this.sortBy == 'alphabetically') {
-                let fa = a.subject.toLowerCase(), fb = b.subject.toLowerCase()
+                let fa = a.datetime.toLowerCase(), fb = b.datetime.toLowerCase()
           
               if (fa < fb) {
                 return -1

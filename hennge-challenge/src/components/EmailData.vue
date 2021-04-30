@@ -10,8 +10,9 @@ emailOne  = {
     
 
 <template>
+  <h2>Elo</h2>
 <!-- <input type="text" v-model="searchValue" placeholder="Search Email" id="search-input"> -->
-    <i class="fa fa-search"></i>
+<!--     <i class="fa fa-search"></i>
     <tr>
     <div class="email-data">
       <span>@{{ email.id }} on {{ email.from }}</span>
@@ -21,7 +22,7 @@ emailOne  = {
       <td>{{ email.datetime }}</td>
     </div>
     </tr>
-
+ -->
 </template>
 
 <script>
