@@ -2,18 +2,19 @@
   <div id="app">
 
 <div id="sort-bar">
-    <select name="sortBy" id="select" v-model="sortBy">
-      <option value="alphabetically">Alphabetically</option>
-    </select>
-    <button v-on:click="ascending = !ascending" class="sort-button">
-      <i v-if="ascending" class="fa fa-sort-up"></i>
-      <i v-else class="fa fa-sort-down"></i>
-    </button>
 
+<!-- 
     <input type="text" v-model="searchValue" placeholder="Search email" id="search-input">
     <i class="fa fa-search"></i>
-  </div>
-    
+  </div> -->
+
+   <input type="date" v-model="startDate">
+   <input type="date" v-model="endDate">
+   <ul>
+     <li v-for="emails in filteredData" :key="emails.datetime">{{emails.datetime}}</li>
+   </ul>
+</div>
+
   <!-- Where the array of emails get rendered as cards -->
   <div id="email-container">
     <div class="card" v-for="email in filteredEmails" :key="email.subject">
@@ -75,6 +76,8 @@
 
 <script>
 import EmailData from '@/components/EmailData.vue'
+import _ from 'lodash';
+
 export default {
   name: 'Home',
   components: {
@@ -82,10 +85,13 @@ export default {
   },
   data() {
     return {
+      startDate: null,
+      endDate: null,
       ascending: true,
       sortBy: 'alphabetically',
       searchValue: '',
-      emails: [
+      data: {
+        all:[
         { 
           id: 1,
           from: "aaa1@example.com",
@@ -184,47 +190,59 @@ export default {
           body: "this is a fake body"
         }
     ]
-    };
   },
   computed: {
-  filteredEmails() {
-    let tempEmails = this.emails
+    filteredData(){
+      var vm = this
+      var startDate = vm.startDate;
+      var endDate = vm.endDate;
+      return _.filter(vm.data.emails, (function (data) {
+        if ((_.isNull(startDate) && _.isNull(endDate))) {
+          return true
+        } else {
+          var date = data.emails;
+          return (date >= startDate && date <= endDate);
+        }
+      }))
+    }
+  }
+    // filteredEmails() {
+  //   let tempEmails = this.emails
     
-    // Process search input
-    if (this.searchValue != '' && this.searchValue) {
-        tempEmails = tempEmails.filter((item) => {
-          return item.datetime
-            .toUpperCase()
-            .includes(this.searchValue.toUpperCase())
-        })
-      }
+  //   // Process search input
+  //   if (this.searchValue != '' && this.searchValue) {
+  //       tempEmails = tempEmails.filter((item) => {
+  //         return item.datetime
+  //           .toUpperCase()
+  //           .includes(this.searchValue.toUpperCase())
+  //       })
+  //     }
            
-    // Sort by alphabetical order
-        tempEmails = tempEmails.sort((a, b) => {
-            if (this.sortBy == 'alphabetically') {
-                let fa = a.datetime.toLowerCase(), fb = b.datetime.toLowerCase()
+  //   // Sort by alphabetical order
+  //       tempEmails = tempEmails.sort((a, b) => {
+  //           if (this.sortBy == 'alphabetically') {
+  //               let fa = a.datetime.toLowerCase(), fb = b.datetime.toLowerCase()
           
-              if (fa < fb) {
-                return -1
-              }
-              if (fa > fb) {
-                return 1 
-              }
-              return 0
-        }
-        })
+  //             if (fa < fb) {
+  //               return -1
+  //             }
+  //             if (fa > fb) {
+  //               return 1 
+  //             }
+  //             return 0
+  //       }
+  //       })
         
-        // Show sorted array in descending or ascending order
-        if (!this.ascending) {
-          tempEmails.reverse()
-        }
+  //       // Show sorted array in descending or ascending order
+  //       if (!this.ascending) {
+  //         tempEmails.reverse()
+  //       }
         
-        return tempEmails
+  //       return tempEmails
+  // }
+    }
   }
 }
-  
-}
-
 </script>
 
 <style>
