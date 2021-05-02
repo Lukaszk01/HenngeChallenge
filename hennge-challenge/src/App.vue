@@ -17,73 +17,50 @@
 
     <!-- Where the array of emails get rendered as cards -->
    <div id="sort-bar">
-      <input type="text" v-model="searchValue" placeholder="Search Recipe" id="search-input">
+      <input type="text" v-model="searchValue" placeholder="Search Email" id="search-input">
       <i class="fa fa-search"></i>
     </div>
       
     <!-- Where the array of recipes get rendered as cards -->
     <div id="recipe-container">
-      <div class="card" v-for="email in filteredEmails" :key="email.subject">
+      <div class="card" v-for="email in emails" :key="email.id">
         <div class="content">
           <h1 class="email-title">
-            {{ email.subject }}
+            To:
+            {{ email.to }}
           </h1>
           <p>
+            Body:
             {{ email.body }}
           </p>
-          <span class="ingredient-span">
-
-            <h3 class="ingredient-title">
-              Ingredients:
-            </h3>
-            
-          </span>
-
-          <h3>
-            Cooking Time:
-          </h3>
-          <p>
-            {{email.cookingTime}} minutes
+                    <p>
+                      From:
+            {{ email.from }}
           </p>
-
+                    <p>
+                      Date:
+            {{ email.datetime }}
+          </p>
+                    <p>
+                      Subject:
+            {{ email.subject }}
+          </p>
         </div>
 
       </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-      <h2>emails</h2>
-      <input type="text" v-model="searchValue" placeholder="Search Email" id="search-input">
-
-
-      <div class="emails">
-      <EmailData v-for="email in emails" :key="email.id" :email="email" />
-    </div>
   </template>
 
   <script>
-  import EmailData from '@/components/EmailData.vue'
+  // import EmailData from '@/components/EmailData.vue'
   // import _ from 'lodash';
 
   export default {
-    name: 'Home',
-    components: {
-      EmailData
-    },
     data() {
       return {
-        startDate: null,
-        endDate: null,
+        // startDate: null,
+        // endDate: null,
         ascending: true,
         sortBy: 'alphabetically',
         searchValue: '',
@@ -208,7 +185,7 @@
       // Process search input
       if (this.searchValue != '' && this.searchValue) {
           tempEmails = tempEmails.filter((item) => {
-            return item.title
+            return item.subject
               .toUpperCase()
               .includes(this.searchValue.toUpperCase())
           })
@@ -217,7 +194,7 @@
       // Sort by alphabetical order
           tempEmails = tempEmails.sort((a, b) => {
               if (this.sortBy == 'alphabetically') {
-                  let fa = a.title.toLowerCase(), fb = b.title.toLowerCase()
+                  let fa = a.subject.toLowerCase(), fb = b.subject.toLowerCase()
             
                 if (fa < fb) {
                   return -1
@@ -235,6 +212,7 @@
           }
           
           return tempEmails
+
         }
       }
     }
@@ -251,10 +229,3 @@
     margin-top: 60px;
   }
   </style>
-
-
-
-
-  export default {
-    
-  };
