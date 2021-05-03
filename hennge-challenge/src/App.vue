@@ -1,10 +1,14 @@
 <template>
 <div class="results ml-3">
   <h4>Results: 10mail(s)</h4>
+   
+  
 </div>
    <input type="date" v-model="startDate">
    <input type="date" v-model="endDate">
-
+<div class="input-group-prepend">
+    <span class="input-group-text" id="addon-wrapping"> <img class="search" src="@/assets/icon_search.svg" alt="calendar"></span>
+  </div>
     <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3"></div>
 
  <div class="container col-12 md-8 sm-3">
@@ -17,12 +21,19 @@
       <th class="table-active" scope="col"> <strong>Date</strong> </th>
     </thead>
   <tbody>
+<div v-if="startDate === null">
+  <img src="@/assets/logo.png" alt="">
+</div>
+<div v-else>
+  
     <tr v-for="all in filteredData" :key="all">
       <td>{{all.from}}</td>
       <td>{{all.to}}</td>
       <td>{{all.subject}}</td>
       <td>{{all.date}}</td>
     </tr>
+</div>
+    
   </tbody>
   </table>
 </div>
@@ -158,4 +169,32 @@
 }
 
 </script>
+<style>
+  .logo img {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.calimg {
+  width: 25px;
+  height: 25px;
+}
+body {
+  color: gray;
+}
+body th  {
+  color: gray;
+}
+#reportrange {
+  width: 50%;
+}
+.search {
+  width: 10px;
+  height: 15px;
+}
+
+</style>
 
