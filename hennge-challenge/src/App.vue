@@ -1,16 +1,31 @@
 <template>
-   <div id="app">
+<div class="results ml-3">
+  <h4>Results: 10mail(s)</h4>
+</div>
    <input type="date" v-model="startDate">
    <input type="date" v-model="endDate">
-   <ul>
-     <li v-for="all in filteredData" :key="all">
-      <p>{{all.date}}</p>
-      <h1>{{all.subject}}</h1>
-      <p>{{all.from}}</p>
-      <p>{{all.to}}</p>
-      <h2>{{all.body}}</h2>
-  </li>
-   </ul>
+
+    <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3"></div>
+
+ <div class="container col-12 md-8 sm-3">
+    <div class="mail-list">
+  <table id="myTable" class="table table-hover">
+    <thead>
+      <th class="table-active" scope="col">From</th>
+      <th class="table-active" scope="col">To</th>
+      <th class="table-active" scope="col">Subject</th>
+      <th class="table-active" scope="col"> <strong>Date</strong> </th>
+    </thead>
+  <tbody>
+    <tr v-for="all in filteredData" :key="all">
+      <td>{{all.from}}</td>
+      <td>{{all.to}}</td>
+      <td>{{all.subject}}</td>
+      <td>{{all.date}}</td>
+    </tr>
+  </tbody>
+  </table>
+</div>
 </div>
 </template>
 
