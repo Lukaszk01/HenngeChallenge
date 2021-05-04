@@ -1,7 +1,9 @@
 <template>
 <div class="results ml-3">
   <h4>Results: 10mail(s)</h4>
-   
+
+  <p>Length = {{result}}</p>
+  <p>Length = {{ theCount }}</p>
   
 </div>
    <input type="date" v-model="startDate">
@@ -25,13 +27,13 @@
   <img src="@/assets/logo.png" alt="">
 </div>
 <div v-else>
-  
-    <tr v-for="all in filteredData" :key="all">
+    <tr class="filtredData" id="filtredData" v-for="all in filteredData" :key="all">
       <td>{{all.from}}</td>
       <td>{{all.to}}</td>
       <td>{{all.subject}}</td>
       <td>{{all.date}}</td>
     </tr>
+
 </div>
     
   </tbody>
@@ -147,7 +149,8 @@
             date: "2021-12-24",
             body: "this is a fake body"
           }
-          ]
+          ],
+          result: ''
       }
     }
   },
@@ -164,8 +167,21 @@
           return (date >= startDate && date <= endDate);
         }
       }))
+    },
+  },
+  methods:{
+    myFunction: function () { 
+    // const result = this.data.all;  
+    this.result = this.data.all.length;
+    
+    },
+    theCount(){
+      var anchors = document.getElementById("filtredData").getElementsByTagName("td");
+        // alert("The Div has " + anchors.length + " links in it");
+        return anchors.length
     }
   }
+  
 }
 
 </script>
@@ -194,6 +210,15 @@ body th  {
 .search {
   width: 10px;
   height: 15px;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(assets/icon_calender.svg) no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
 }
 
 </style>
