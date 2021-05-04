@@ -6,11 +6,25 @@
   <p>Length = {{ theCount }}</p>
   
 </div>
-   <input type="date" v-model="startDate">
-   <input type="date" v-model="endDate">
-<div class="input-group-prepend">
-    <span class="input-group-text" id="addon-wrapping"> <img class="search" src="@/assets/icon_search.svg" alt="calendar"></span>
+<div class="row">
+  
+  <div id="date" class="input-group mb-3 mr-3 ml-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">   <img class="search" src="@/assets/icon_search.svg" alt="calendar"></span>
   </div>
+  <input type="date" class="form-control" aria-label="Username" aria-describedby="basic-addon1" v-model="startDate">
+</div>
+
+
+<div id="date" class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"> <img class="search" src="@/assets/icon_search.svg" alt="calendar"></span>
+  </div>
+  <input type="date" class="form-control" aria-label="Username" aria-describedby="basic-addon1" v-model="endDate">
+</div>
+
+</div>
+
     <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3"></div>
 
  <div class="container col-12 md-8 sm-3">
@@ -48,7 +62,7 @@
   export default {
   data(){
     return{
-      startDate: null,
+      startDate: new Date(),
       endDate: null,
       data:{
         all:[
@@ -219,7 +233,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 20px;
     height: 20px;
     border-width: thin;
+    border-radius: 5px;
 }
-
+input {
+  border-radius: 5px;
+}
+#date {
+  width: 300px;
+}
 </style>
 
