@@ -30,7 +30,7 @@
  <div class="container col-12 md-8 sm-3">
     <div class="mail-list">
   <table id="myTable" class="table table-hover">
-    <thead>
+    <thead class="table">
       <th class="table-active" scope="col">From</th>
       <th class="table-active" scope="col">To</th>
       <th class="table-active" scope="col">Subject</th>
@@ -54,6 +54,71 @@
   </table>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">From</th>
+      <th scope="col">To</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <div v-if="startDate === null">
+  <img src="@/assets/logo.png" alt="">
+</div>
+<div v-else>
+  <tbody>
+    <div class="filtredData" id="filtredData" v-for="all in filteredData" :key="all">
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </div>
+  </div>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </template>
 
 <script>
