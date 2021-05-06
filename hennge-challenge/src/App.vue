@@ -15,25 +15,32 @@
   </div>
 </div>
 </div>
-<div v-if="startDate === null " class="results ml-3">
-  Results: 0 mail(s)
-
+<div v-if="startDate === null" class="ml-3">
+ <b>Results: 0 mail(s)</b> 
+ <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3 ml-1"></div>
+</div>
+<div v-else-if="filteredData === 1">
+  Results: 1 mail
 </div>
 <div v-else>
-  <h4>Results: {{ filteredData.length }}mail(s)</h4>
+ <b class="results-number">Results: {{ filteredData.length }} mail(s)</b> 
 </div>
-    <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3"></div>
+<!-- <div v-if="startDate === null">
+  <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3 ml-4"></div>
+  <div></div>
+</div> -->
+    
 
-  <div class="container col-12 md-8 sm-3">
+  <div class="container col-12 md-8 sm-3 mr-3 ml-3">
     <div class="mail-list">
-    </div>
+    
   </div>
 <div v-if="startDate === null">
   <img id="logo" class ="rounded mx-auto d-block mt-4" src="@/assets/logo.png" alt="">
 </div>
 <div v-else>
-<table class="table table-hover">
-  <thead>
+<table class="table table-hover mr-3">
+  <thead class="table-active">
     <tr>
       <th scope="col">From</th>
       <th scope="col">To</th>
@@ -44,13 +51,14 @@
 
   <tbody class="filtredData" id="filtredData" v-for="all in filteredData" :key="all">
     <tr>
-      <th scope="row">{{all.from}}</th>
+      <td>{{all.from}}</td>
       <td>{{all.to}}</td>
       <td>{{all.subject}}</td>
-      <td>{{all.date}}</td>
+      <th>{{all.date}}</th>
     </tr>
   </tbody>
 </table>
+</div>
 </div>
 
 </template>
@@ -215,6 +223,9 @@ body th  {
 .search img {
   width: 16px;
   height: 15px;
+}
+.results-number {
+  margin-left: 32px;
 }
 #basic-addon1 {
   border-top-right-radius: 5px;
