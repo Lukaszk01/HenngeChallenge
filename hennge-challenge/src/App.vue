@@ -29,7 +29,7 @@
 
  <div class="container col-12 md-8 sm-3">
     <div class="mail-list">
-  <table id="myTable" class="table table-hover">
+<!--   <table id="myTable" class="table table-hover">
     <thead class="table">
       <th class="table-active" scope="col">From</th>
       <th class="table-active" scope="col">To</th>
@@ -51,7 +51,7 @@
 </div>
     
   </tbody>
-  </table>
+  </table> -->
 </div>
 </div>
 
@@ -62,7 +62,10 @@
 
 
 
-
+<div v-if="startDate === null">
+  <img src="@/assets/logo.png" alt="">
+</div>
+<div v-else>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -72,37 +75,17 @@
       <th scope="col">Date</th>
     </tr>
   </thead>
-  <div v-if="startDate === null">
-  <img src="@/assets/logo.png" alt="">
-</div>
-<div v-else>
-  <tbody>
-    <div class="filtredData" id="filtredData" v-for="all in filteredData" :key="all">
+
+  <tbody class="filtredData" id="filtredData" v-for="all in filteredData" :key="all">
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{all.from}}</th>
+      <td>{{all.to}}</td>
+      <td>{{all.subject}}</td>
+      <td>{{all.date}}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </div>
-  </div>
   </tbody>
 </table>
-
-
-
-
+</div>
 
 
 
@@ -127,7 +110,7 @@
   export default {
   data(){
     return{
-      startDate: new Date(),
+      startDate: null,
       endDate: null,
       data:{
         all:[
