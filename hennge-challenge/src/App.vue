@@ -1,69 +1,35 @@
 <template>
-<div class="results ml-3">
-  <h4>Results: 10mail(s)</h4>
-
-  <p>Length = {{result}}</p>
-  <p>Length = {{ theCount }}</p>
-  
-</div>
 <div class="row">
-  
   <div id="date" class="input-group mb-3 mr-3 ml-3">
   <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1">   <img class="search" src="@/assets/icon_search.svg" alt="calendar"></span>
   </div>
+
   <input type="date" class="form-control" aria-label="Username" aria-describedby="basic-addon1" v-model="startDate">
+  <span class="input-group-text" id="basic-addon1">   <img class="search" src="@/assets/icon_search.svg" alt="calendar"></span>
 </div>
 
-
 <div id="date" class="input-group mb-3">
+  <input type="date" class="form-control" aria-label="Username" aria-describedby="basic-addon1" v-model="endDate">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1"> <img class="search" src="@/assets/icon_search.svg" alt="calendar"></span>
   </div>
-  <input type="date" class="form-control" aria-label="Username" aria-describedby="basic-addon1" v-model="endDate">
 </div>
-
 </div>
+<div v-if="startDate === null " class="results ml-3">
+  Results: 0 mail(s)
 
-    <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3"></div>
-
- <div class="container col-12 md-8 sm-3">
-    <div class="mail-list">
-<!--   <table id="myTable" class="table table-hover">
-    <thead class="table">
-      <th class="table-active" scope="col">From</th>
-      <th class="table-active" scope="col">To</th>
-      <th class="table-active" scope="col">Subject</th>
-      <th class="table-active" scope="col"> <strong>Date</strong> </th>
-    </thead>
-  <tbody>
-<div v-if="startDate === null">
-  <img src="@/assets/logo.png" alt="">
 </div>
 <div v-else>
-    <tr class="filtredData" id="filtredData" v-for="all in filteredData" :key="all">
-      <td>{{all.from}}</td>
-      <td>{{all.to}}</td>
-      <td>{{all.subject}}</td>
-      <td>{{all.date}}</td>
-    </tr>
-
+  <h4>Results: {{ filteredData.length }}mail(s)</h4>
 </div>
-    
-  </tbody>
-  </table> -->
-</div>
-</div>
+    <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3"></div>
 
-
-
-
-
-
-
-
+  <div class="container col-12 md-8 sm-3">
+    <div class="mail-list">
+    </div>
+  </div>
 <div v-if="startDate === null">
-  <img src="@/assets/logo.png" alt="">
+  <img id="logo" class ="rounded mx-auto d-block mt-4" src="@/assets/logo.png" alt="">
 </div>
 <div v-else>
 <table class="table table-hover">
@@ -86,21 +52,6 @@
   </tbody>
 </table>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </template>
 
@@ -231,19 +182,6 @@
       }))
     },
   },
-  methods:{
-    myFunction: function () { 
-    // const result = this.data.all;  
-    this.result = this.data.all.length;
-    
-    },
-    theCount(){
-      var anchors = document.getElementById("filtredData").getElementsByTagName("td");
-        // alert("The Div has " + anchors.length + " links in it");
-        return anchors.length
-    }
-  }
-  
 }
 
 </script>
@@ -260,6 +198,7 @@
   width: 25px;
   height: 25px;
 }
+
 body {
   color: gray;
 }
@@ -270,8 +209,18 @@ body th  {
   width: 50%;
 }
 .search {
-  width: 10px;
+  width: 16px;
   height: 15px;
+}
+.search img {
+  width: 16px;
+  height: 15px;
+}
+#basic-addon1 {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0);
@@ -281,13 +230,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 20px;
     height: 20px;
     border-width: thin;
-    border-radius: 5px;
+    
 }
-input {
-  border-radius: 5px;
+.input-group>.custom-select:not(:first-child), .input-group>.form-control:not(:first-child) {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+     -moz-box-shadow:    inset 0 0 1px #000000;
+   -webkit-box-shadow: inset 0 0 1px #000000;
+   box-shadow:         inset 0 0 1px #000000;
 }
+
 #date {
   width: 300px;
+}
+.logo {
+  width: 150px;
+  height: 150px;
+}
+.row {
+  margin-top: 50px;
+  margin-left: 25px;
 }
 </style>
 
