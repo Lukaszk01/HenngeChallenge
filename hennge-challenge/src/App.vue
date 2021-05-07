@@ -47,7 +47,13 @@
   <tbody class="filtredData" id="filtredData" v-for="all in filteredData" :key="all">
     <tr>
       <td><a href="#">{{all.from}}</a></td>
-      <td><a href="#">{{all.to}}</a></td>
+
+      <td v-if="all.quantity === true">
+        <a href="#">{{all.to}}</a></td>
+      <td v-else-if="all.quantity >= 1"><a href="#">{{all.to}}</a><div class="email-no">+ {{all.quantity}}</div></td>
+
+
+
       <td v-if="all.attachment === true">
         <a href="#">{{all.subject}}
           </a><img src="@/assets/icon_clip.svg" class="attachment" alt="">
@@ -79,7 +85,7 @@
             subject: "[HR-8888] Noticed of official announcement",
             attachment: false,
             date: "2021-02-23",
-            body: "this is a fake body"
+            quantity: true,
           },
           {
             id: 2,
@@ -88,7 +94,7 @@
             subject: "[Github] Logout page",
             attachment: true,
             date: "2021-07-29",
-            body: "this is a fake body",
+            quantity: 1,
           },
           {
             id: 3,
@@ -97,7 +103,7 @@
             subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
             attachment: false,
             date: "2021-08-17",
-            body: "this is a fake body"
+            quantity: true,
           }
           ,
           {
@@ -107,7 +113,7 @@
             subject: "[HR-8888] Noticed of official announcement",
             attachment: false,
             date: "2021-03-23",
-            body: "this is a fake body"
+            quantity: 2,
           }
           ,
           {
@@ -117,7 +123,7 @@
             subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
             attachment: false,
             date: "2021-09-02",
-            body: "this is a fake body"
+            quantity: true,
           }
           ,
           {
@@ -127,7 +133,7 @@
             subject: "[HR-8888] Noticed of official announcement",
             attachment: false,
             date: "2021-10-03",
-            body: "this is a fake body"
+            quantity: true,
           }
           ,
           {
@@ -137,7 +143,7 @@
             subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
             attachment: false,
             date: "2021-11-23",
-            body: "this is a fake body"
+            quantity: 1,
           }
           ,
           {
@@ -147,7 +153,7 @@
             subject: "[HR-8888] Noticed of official announcement",
             attachment: true,
             date: "2021-11-26",
-            body: "this is a fake body"
+            quantity: true,
           }
           ,
           {
@@ -157,7 +163,7 @@
             subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
             attachment: false,
             date: "2021-12-25",
-            body: "this is a fake body"
+            quantity: true,
           }
           ,
           {
@@ -167,7 +173,7 @@
             subject: "[HR-8888] Noticed of official announcement",
             attachment: false,
             date: "2021-12-24",
-            body: "this is a fake body"
+            quantity: true,
           }
           ],
           result: ''
@@ -286,6 +292,17 @@ a:hover {
   margin-left: 5px;
   height: 16px;
   width: 16px;
+}
+.email-no {
+    border: 0.5px black;
+    border-radius: 5px;
+    width: 24px;
+    height: 18px;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: #999797;
+    color: white;
+    text-align: center;
 }
 </style>
 
