@@ -25,11 +25,6 @@
 <div v-else>
  <b class="results-number">Results: {{ filteredData.length }} mail(s)</b> 
 </div>
-<!-- <div v-if="startDate === null">
-  <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light mt-3 mb-3 ml-4"></div>
-  <div></div>
-</div> -->
-    
 
   <div class="container col-12 md-8 sm-3 mr-3 ml-3">
     <div class="mail-list">
@@ -45,16 +40,20 @@
       <th scope="col">From</th>
       <th scope="col">To</th>
       <th scope="col">Subject</th>
-      <th scope="col">Date</th>
+      <th scope="col"><b style="color:black">Date</b><img class="arrow" src="@/assets/icon_arrow01.svg"></th>
     </tr>
   </thead>
 
   <tbody class="filtredData" id="filtredData" v-for="all in filteredData" :key="all">
     <tr>
-      <td>{{all.from}}</td>
-      <td>{{all.to}}</td>
-      <td>{{all.subject}}</td>
-      <th>{{all.date}}</th>
+      <td><a href="#">{{all.from}}</a></td>
+      <td><a href="#">{{all.to}}</a></td>
+      <td v-if="all.attachment === true">
+        <a href="#">{{all.subject}}
+          </a><img src="@/assets/icon_clip.svg" class="attachment" alt="">
+        </td>
+        <td v-else><a href="#">{{all.subject}}</a></td>
+      <th style="color:black">{{all.date}}</th>
     </tr>
   </tbody>
 </table>
@@ -78,7 +77,7 @@
             from: "aaa1@example.com",
             to: "zzzz.zzzz@example.com",
             subject: "[HR-8888] Noticed of official announcement",
-            attachment: "",
+            attachment: false,
             date: "2021-02-23",
             body: "this is a fake body"
           },
@@ -87,16 +86,16 @@
             from: "bbb1@example.com",
             to: "zzzz.zzzz@example.com",
             subject: "[Github] Logout page",
-            attachment: "",
+            attachment: true,
             date: "2021-07-29",
-            body: "this is a fake body"
+            body: "this is a fake body",
           },
           {
             id: 3,
             from: "ccc1@example.com",
             to: "zzzz.zzzz@example.com",
             subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
-            attachment: "",
+            attachment: false,
             date: "2021-08-17",
             body: "this is a fake body"
           }
@@ -106,7 +105,7 @@
             from: "ddd1@example.com",
             to: "mmmm.zzzz@example.com",
             subject: "[HR-8888] Noticed of official announcement",
-            attachment: "",
+            attachment: false,
             date: "2021-03-23",
             body: "this is a fake body"
           }
@@ -116,7 +115,7 @@
             from: "eee1@example.com",
             to: "tttt.zzzz@example.com",
             subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
-            attachment: "",
+            attachment: false,
             date: "2021-09-02",
             body: "this is a fake body"
           }
@@ -126,7 +125,7 @@
             from: "fff1@example.com",
             to: "pppp.zzzz@example.com",
             subject: "[HR-8888] Noticed of official announcement",
-            attachment: "",
+            attachment: false,
             date: "2021-10-03",
             body: "this is a fake body"
           }
@@ -136,7 +135,7 @@
             from: "ggg1@example.com",
             to: "ooo.zzzz@example.com",
             subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
-            attachment: "",
+            attachment: false,
             date: "2021-11-23",
             body: "this is a fake body"
           }
@@ -146,7 +145,7 @@
             from: "hhh1@example.com",
             to: "tttt.zzzz@example.com",
             subject: "[HR-8888] Noticed of official announcement",
-            attachment: "",
+            attachment: true,
             date: "2021-11-26",
             body: "this is a fake body"
           }
@@ -156,7 +155,7 @@
             from: "iii1@example.com",
             to: "xxx.zzzz@example.com",
             subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
-            attachment: "",
+            attachment: false,
             date: "2021-12-25",
             body: "this is a fake body"
           }
@@ -166,7 +165,7 @@
             from: "jjj1@example.com",
             to: "zzzz.zzzz@example.com",
             subject: "[HR-8888] Noticed of official announcement",
-            attachment: "",
+            attachment: false,
             date: "2021-12-24",
             body: "this is a fake body"
           }
@@ -233,6 +232,11 @@ body th  {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
 }
+.arrow {
+  margin-left: 10px;
+  height: 10px;
+  width: 10px;
+}
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0);
     opacity: 1;
@@ -242,6 +246,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 20px;
     border-width: thin;
     
+}
+.form-control {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+    -moz-box-shadow:    inset 0 0 1px #000000;
+   -webkit-box-shadow: inset 0 0 1px #000000;
+   box-shadow:         inset 0 0 1px #000000;
 }
 .input-group>.custom-select:not(:first-child), .input-group>.form-control:not(:first-child) {
   border-top-left-radius: 5px;
@@ -261,6 +272,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .row {
   margin-top: 50px;
   margin-left: 25px;
+}
+a {
+    color: black;
+    text-decoration: none;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+  color: blue;
+}
+.attachment {
+  margin-left: 5px;
+  height: 16px;
+  width: 16px;
 }
 </style>
 
