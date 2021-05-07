@@ -26,15 +26,12 @@
  <b class="results-number">Results: {{ filteredData.length }} mail(s)</b> 
 </div>
 
-  <div class="container col-12 md-8 sm-3 mr-3 ml-3">
-    <div class="mail-list">
-    
-  </div>
-<div v-if="startDate === null">
+<div class="container col-12">
+  <div v-if="startDate === null">
   <img id="logo" class ="rounded mx-auto d-block mt-4" src="@/assets/logo.png" alt="">
 </div>
 <div v-else>
-<table class="table table-hover mr-3">
+<table class="table table-hover">
   <thead class="table-active">
     <tr>
       <th scope="col">From</th>
@@ -46,24 +43,36 @@
 
   <tbody class="filtredData" id="filtredData" v-for="all in filteredData" :key="all">
     <tr>
-      <td><a href="#">{{all.from}}</a></td>
-
+      <td>
+        <a href="#">{{all.from}}</a>
+      </td>
       <td v-if="all.quantity === true">
         <a href="#">{{all.to}}</a></td>
-      <td v-else-if="all.quantity >= 1"><a href="#">{{all.to}}</a><div class="email-no">+ {{all.quantity}}</div></td>
-
-
-
+      <td v-else-if="all.quantity > 0">
+        <a href="#">{{all.to}}
+          <div class="email-no">+ {{all.quantity}}
+        </div>
+      </a>
+      </td>
       <td v-if="all.attachment === true">
         <a href="#">{{all.subject}}
-          </a><img src="@/assets/icon_clip.svg" class="attachment" alt="">
+             <img src="@/assets/icon_clip.svg" class="attachment" alt="">
+          </a>
+       
         </td>
-        <td v-else><a href="#">{{all.subject}}</a></td>
+        <td v-else>
+          <a href="#">{{all.subject}}
+        </a>
+      </td>
       <th style="color:black">{{all.date}}</th>
     </tr>
   </tbody>
 </table>
+    <div class="bottom-border">
+    </div>
 </div>
+
+
 </div>
 
 </template>
@@ -119,11 +128,11 @@
           {
             id: 5,
             from: "eee1@example.com",
-            to: "tttt.zzzz@example.com",
+            to: "xxxx.zzzz@example.com",
             subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
             attachment: false,
             date: "2021-09-02",
-            quantity: true,
+            quantity: 2,
           }
           ,
           {
@@ -139,7 +148,7 @@
           {
             id: 7,
             from: "ggg1@example.com",
-            to: "ooo.zzzz@example.com",
+            to: "oooo.zzzz@example.com",
             subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
             attachment: false,
             date: "2021-11-23",
@@ -159,7 +168,7 @@
           {
             id: 9,
             from: "iii1@example.com",
-            to: "xxx.zzzz@example.com",
+            to: "xxxx.zzzz@example.com",
             subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
             attachment: false,
             date: "2021-12-25",
@@ -253,6 +262,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-width: thin;
     
 }
+input[type="date"]::-webkit-calendar-picker-indicator {
+ position: absolute; left: 0; }
+input::-webkit-datetime-edit { position: relative; left: 0; }
+input::-webkit-datetime-edit-fields-wrapper { position: relative; left: 0; }
+input{
+  text-align: center;
+}
+
+
 .form-control {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -292,6 +310,7 @@ a:hover {
   margin-left: 5px;
   height: 16px;
   width: 16px;
+  float: right;
 }
 .email-no {
     border: 0.5px black;
@@ -303,6 +322,14 @@ a:hover {
     background-color: #999797;
     color: white;
     text-align: center;
+    display: inline-block;
+    margin-left: 55px;
+
+}
+.bottom-border {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 2px solid #dee2e6;
 }
 </style>
 
