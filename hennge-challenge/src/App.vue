@@ -71,8 +71,6 @@
     <div class="bottom-border">
     </div>
 </div>
-
-
 </div>
 
 </template>
@@ -169,7 +167,7 @@
             id: 9,
             from: "iii1@example.com",
             to: "xxxx.zzzz@example.com",
-            subject: "[dev]Postfix 3.1.12 / 3.2.9 / 3.3.4 / 3.4.5",
+            subject: "[HR-887(Revised: Office Expansion Project Team)] Notice of off...",
             attachment: false,
             date: "2021-12-25",
             quantity: true,
@@ -220,7 +218,9 @@
   width: 25px;
   height: 25px;
 }
-
+tbody {
+  font-size: 16px;
+}
 body {
   color: gray;
 }
@@ -331,5 +331,19 @@ a:hover {
     vertical-align: top;
     border-top: 2px solid #dee2e6;
 }
+@media (max-width: 1200px) {
+  table {
+    width: 100%;
+    font-size: 12px;
+    text-indent: none;
+}
+tr {
+  font-size: 12px;
+  vertical-align: middle
+}
+
+
+  
+  }
 </style>
 
