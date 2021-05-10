@@ -4,6 +4,20 @@
   <div class="input-group-prepend">
   </div>
 
+
+
+<div>
+   <button @click="toggleModal">Open</button>
+    <transition name="fade">
+      <div v-if="isOpen" class="modal">
+        <button @click="toggleModal">Close</button>
+          </div>
+        </transition>
+      </div> 
+
+
+
+
   <input type="date" class="form-control" aria-label="Username" aria-describedby="basic-addon1" v-model="startDate">
   <span class="input-group-text" id="basic-addon1">   <img class="search" src="@/assets/icon_search.svg" alt="calendar"></span>
 </div>
@@ -268,6 +282,7 @@ input::-webkit-datetime-edit { position: relative; left: 0; }
 input::-webkit-datetime-edit-fields-wrapper { position: relative; left: 0; }
 input{
   text-align: center;
+
 }
 
 
@@ -277,6 +292,7 @@ input{
     -moz-box-shadow:    inset 0 0 1px #000000;
    -webkit-box-shadow: inset 0 0 1px #000000;
    box-shadow:         inset 0 0 1px #000000;
+
 }
 .input-group>.custom-select:not(:first-child), .input-group>.form-control:not(:first-child) {
   border-top-left-radius: 5px;
@@ -312,6 +328,7 @@ a:hover {
   width: 16px;
   float: right;
 }
+
 .email-no {
     border: 0.5px black;
     border-radius: 5px;
@@ -341,9 +358,7 @@ tr {
   font-size: 12px;
   vertical-align: middle
 }
-
-
-  
   }
+
 </style>
 
