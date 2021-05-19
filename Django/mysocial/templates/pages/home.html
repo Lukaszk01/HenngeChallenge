@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block head_title %}
-this is amazing!!!!
+
 {% endblock head_title%}
 
 
@@ -14,7 +14,7 @@ this is amazing!!!!
 
 <div class='row text-center d-none'>
     <div class='col'>
-        <h1>Welcome to Tweetme 2</h1>
+        <h1>Welcome to My Social</h1>
     </div>
 </div>
 
@@ -44,7 +44,7 @@ function getCookie(name) {
         var cookies = document.cookie.split(';');
         for (var i = 0; i < cookies.length; i++) {
             var cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
+            
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
@@ -59,11 +59,11 @@ function getCookie(name) {
 function handleTweetFormError(msg, display){
     var myErrorDiv = document.getElementById("tweet-create-form-error")
     if (display === true) {
-        // show error
+
         myErrorDiv.setAttribute("class", "d-block alert alert-danger")
         myErrorDiv.innerText = msg
     } else {
-        // hide error
+    git 
         myErrorDiv.setAttribute("class", "d-none alert alert-danger")
     }
 }

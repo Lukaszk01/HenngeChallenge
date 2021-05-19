@@ -2,18 +2,153 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+    <link rel="icon" type="image/png" href="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/16/30914/54474>
     <meta charset="utf-8">
+    <meta property="og:image" content="https://media.wired.com/photos/5b86f3b6f8da0b35c874a5f6/2:1/w_2400,h_1200,c_limit/twitter-520745021.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="200">
+    <meta property="og:image:height" content="200"> 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     {% include 'react/css.html' %}
+    
+    
     <style>
       .bg-tweetme {
-          background-color: #8e1f1f!important;
+          background-color: #B9F7E9;
+          height: 150px;
+          box-shadow: 117px 1px 120px grey;
+          
       }
-    </style>
-    <title>Tweetme 2 {% block head_title %}{% endblock head_title%}</title>
+      .navbar-dark .navbar-nav .nav-link {
+        color: black;
+        text-shadow: 0.5px 0.5px 0.5px gray;
+        background-color: #B9F7E9;
+        box-shadow: 0.3px 0.3px 3px gray;
+      }
+      .navbar-dark .navbar-nav .nav-link:hover {
+        color: green;
+        background-color: white;
+      }
+      .navbar-dark .navbar-brand {
+        color: gray;
+        text-shadow: 0.3px 0.3px 3px white;
+        font-family:fantasy;
+        font-size: 40px;
+        text-align: center;
+
+    }
+    .form-control {
+      margin-top: 100px;
+      box-shadow: 0.3px 0.3px 1px gray;
+      background-color: #f9f9f9;
+    }
+  
+    .pb-5, .py-5 {
+      border-radius: 8px;
+      box-shadow: 1px 1px 15px gray;
+      /* border: solid 1px white; */
+      
+    } 
+    .border {
+      border: 1px solid transparent!important;
+    }
+    body {
+      /* background-color: #fcf9f9; */
+      /* background-image: url('https://www.betterwalls.at/pim/pr/WP/20002891/photo-wallpaper-wild-forest_big01.jpg'); */
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    /* .my-5, .py-5, .border, .bg-white, .text-dark {
+      /* background-color: #FCF9F9; */
+  
+    .my-5, .py-5, .border, .bg-white, .text-dark p{
+      color: pink;
+    }
+    .mx-1, .px-3, .py-2, .rounded-circle, .bg-dark, .text-white {
+      padding: 100px;
+    }
+  
+    .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+      color: black;
+      text-shadow: 1px 1px 2px white;
+    }
+    label {
+      color: black;
+      text-shadow: 1px 1px 2px white;
+      font-size: 18px;
+    }
+    p {
+      color: pink;
+      text-shadow: 0.2px 0.2px 0.2px  black;
+      font-size: 22px;
+    }
+    li {
+      color: #eefbcd;
+      text-shadow: 1px 1px 3px  black;
+    }
+    input {
+      border-radius: 5px;
+      width: 400px;
+      height: 35px;
+      box-shadow: 1px 2px 3px white;
+      border: solid 1px gray;
+    }
+    .btn-secondary {
+    color: black;
+    background-color: #efffce;
+    border-color: black;
+    margin: 15px;
+}
+.bg-white {
+  background-color: black;
+}
+button {
+  color: black;
+    background-color: #efffce;
+    border-color: black;
+    margin: 15px;
+    border-radius: 20%;
+}
+.d-flex {
+  background-color: white;
+}
+.btn-primary, .btn-sm {
+  background-color: #B9F7E9;
+  border: none;
+  color: black;
+}
+.btn-primary:hover {
+  background-color: #ecfdf1;
+  color: black;
+}
+.btn-outline-primary:hover {
+  background-color: #ecfdf1;
+  color: black;
+}
+#tweetme-2 {
+  background-color: transparent;
+}
+.col-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+    border: 0px solid gray;
+    box-shadow: 1px 1px 4px grey;
+    border-radius: 5px;
+}
+.bg-dark {
+  background-color: cornflowerblue!important;
+}
+
+
+}
+  </style>
+    <title>My Social {% block head_title %}{% endblock head_title%}</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

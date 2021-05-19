@@ -63,5 +63,3 @@ export function FeedList(props) {
     {nextUrl !== null && <button onClick={handleLoadNext} className='btn btn-outline-primary'>Load next</button>}
     </React.Fragment>
   }
-
-
